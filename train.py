@@ -6,6 +6,8 @@ from datasets import Dataset
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 import numpy as np
+import pandas as pd
+import polars as pl  # Add this import to handle polars DataFrame
 
 # Load the GND dataset and TIBKAT CSV files using the data_handler and label_metadata modules
 from data_handler import load_dev_data_one_hot, load_training_data_one_hot_labelsets
@@ -25,6 +27,12 @@ def load_tibkat_data():
 def prepare_data_for_training():
     tibkat_train_data, tibkat_dev_data, unique_labels = load_tibkat_data()
     subject_metadata = generateLabelMetadata(unique_labels)
+
+    if isinstance(tibkat_dev_data, pl.DataFrame):  # Check if it's a polars DataFrame
+        tibkat_dev_data = tibkat_dev_data.to_pandas()  # Convert to pandas DataFrame
+
+    # Debug print
+    print(f"tibkat_dev_data type after conversion: {type(tibkat_dev_data)}")
 
     # Tokenizer using AutoTokenizer
     tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-cased")

@@ -4,7 +4,7 @@ SemEval 2025, Library Tagging Problem, XMLC
 
 Multi-Label Text Classification with DistilBERT
 
-This project implements a multi-label text classification system using DistilBERT. It supports training, evaluating, and fine-tuning on custom datasets. The project uses PyTorch and Hugging Face's Transformers library for efficient computation and state-of-the-art language representation.
+This project implements a multi-label text classification system using DistilBERT. It supports training, evaluating, and fine-tuning on custom datasets. The project uses PyTorch and Hugging Face's Transformers library for efficient computation and state-of-the-art language representation. The code and dataset is inside the master branch.
 
 Features
 

@@ -14,6 +14,7 @@ Command
 Packages Installation
 
 pip install -r requirments.txt
+
 Run Train File
 
 python train.py
